@@ -26,6 +26,10 @@ function Login() {
       });
       const data = await response.json();
       console.log(data.message); // Log the response from the server
+  
+      // Store the token in session storage upon successful login
+      sessionStorage.setItem('token', data.accessToken);
+      
       // Optionally, you can redirect the user to another page upon successful login
       // For example, window.location.href = '/dashboard';
     } catch (error) {
@@ -38,6 +42,7 @@ function Login() {
       password: ''
     });
   };
+  
 
   return (
     <div>
