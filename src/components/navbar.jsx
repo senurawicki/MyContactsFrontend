@@ -18,7 +18,7 @@ function Navbar() {
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      navigate("/createcontact");
+      navigate("/contacts");
     }
   };
 
@@ -31,7 +31,7 @@ function Navbar() {
   };
 
   return (
-    <BootstrapNavbar className="custom-navbar" bg="light" expand="lg" fluid>
+    <BootstrapNavbar className="custom-navbar" bg="light" expand="lg" fluid="true">
       <BootstrapNavbar.Brand as={Link} to="/">Home</BootstrapNavbar.Brand>
       <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
       <BootstrapNavbar.Collapse id="basic-navbar-nav">

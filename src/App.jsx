@@ -8,6 +8,7 @@ import CreateContact from './components/createContact.jsx';
 import SavedContacts from './components/savedContacts.jsx';
 import Home from './components/home.jsx';
 import About from './components/about.jsx';
+import EditContact from './components/editContact.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/createcontact" element={<CreateContact />} />
+          <Route path="/contacts" element={<CreateContact />} />
           <Route path="/savedcontacts" element={<SavedContacts />} />
+          <Route path="/contacts/:_id" element={<EditContact />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
