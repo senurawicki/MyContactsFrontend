@@ -26,7 +26,7 @@ function CreateContact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5001/api/user/register`, {
+      const response = await fetch(`http://localhost:5001/api/contacts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -42,9 +42,9 @@ function CreateContact() {
     // You can also reset the form fields after submission if needed
     setFormData({
       name: '',
-      phone: '',
-      email: ''
-      // password: ''
+      email: '',
+      phone: ''
+      
     });
   };
   
@@ -57,16 +57,17 @@ function CreateContact() {
           <Form.Label>Contact Name:</Form.Label>
           <FormControl type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
         </FormGroup>
+        <FormGroup>
+          <Form.Label>Email:</Form.Label>
+          <FormControl type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+        </FormGroup>
 
         <FormGroup>
           <Form.Label>Contact Number:</Form.Label>
           <FormControl type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
         </FormGroup>
 
-        <FormGroup>
-          <Form.Label>Email:</Form.Label>
-          <FormControl type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-        </FormGroup>
+        
 
         <Button type="submit" variant="primary">Create Contact</Button>
       </Form>

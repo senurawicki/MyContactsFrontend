@@ -41,7 +41,7 @@ function SavedContacts() {
 
   const handleEdit = () => {
     // Redirect to the edit contact page
-    navigate(`/contacts/${id}`);
+    navigate(`/editContact/${id}`);
   };
 
   const handleDelete = async (contactId) => {

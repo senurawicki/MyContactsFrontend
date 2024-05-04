@@ -24,7 +24,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/contacts" element={<CreateContact />} />
           <Route path="/savedcontacts" element={<SavedContacts />} />
-          <Route path="/contacts/:_id" element={<EditContact />} />
+          <Route path="/editContact/:_id" element={<EditContact />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
