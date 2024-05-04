@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -45,17 +48,21 @@ function Login() {
   
 
   return (
-    <div>
+    <div className="container mt-5">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required /><br /><br />
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Form.Label>Username:</Form.Label>
+          <FormControl type="text" value={formData.username} onChange={handleChange} required />
+        </FormGroup>
 
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required /><br /><br />
+        <FormGroup>
+          <Form.Label>Password:</Form.Label>
+          <FormControl type="password" value={formData.password} onChange={handleChange} required />
+        </FormGroup>
 
-        <button type="submit">Login</button>
-      </form>
+        <Button type="submit" variant="primary">Login</Button>
+      </Form>
     </div>
   );
 }
