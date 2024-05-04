@@ -1,15 +1,33 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import { Navbar as BootstrapNavbar, Nav, Button } from 'react-bootstrap';
 import "../styles/navbar.css";
 
 function Navbar() {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear token from session storage
     sessionStorage.removeItem('token');
-    navigate("/");   // Navigate to the home page after logout
+    navigate("/");
+  };
+
+  // Check if user is logged in
+  const isLoggedIn = sessionStorage.getItem('token');
+
+  const handleCreateContactClick = () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      navigate("/createcontact");
+    }
+  };
+
+  const handleProfileClick = () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      navigate("/profile");
+    }
   };
 
   return (
@@ -18,14 +36,21 @@ function Navbar() {
       <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
       <BootstrapNavbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/createcontact">Create Contact</Nav.Link>
-          <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+          <Nav.Link onClick={handleCreateContactClick}>Create Contact</Nav.Link>
+          <Nav.Link onClick={handleProfileClick}>Profile</Nav.Link>
           <Nav.Link as={Link} to="/about">About</Nav.Link>
         </Nav>
         <Nav className="end">
-          <Nav.Link as={Link} to="/login">Login</Nav.Link>
-          <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
-          <Button variant="outline-primary" onClick={handleLogout}>Logout</Button>
+          {isLoggedIn ? (
+            <>
+              <Button variant="outline-primary" onClick={handleLogout}>Logout</Button>
+            </>
+          ) : (
+            <>
+              <Nav.Link as={Link} to="/login">Login</Nav.Link>
+              <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
+            </>
+          )}
         </Nav>
       </BootstrapNavbar.Collapse>
     </BootstrapNavbar>

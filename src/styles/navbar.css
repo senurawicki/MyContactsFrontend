@@ -1,36 +1,44 @@
 /* navbar.css */
 
 .custom-navbar {
-    background-color: #f8f9fa; /* Light gray background */
-    padding: 20px 0; /* Add padding to the top and bottom */
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
   }
   
   .custom-navbar .navbar-brand {
-    margin-left: 100px;
-    margin-right: 200px;
+    margin-left: 200px;
     font-weight: bold;
-    color: #333; /* Dark text color */
+    color: #333333;
   }
   
-  .custom-navbar .nav-link {
-
-    color: #333; /* Dark text color */
-    margin-right: 15px; /* Add margin between nav links */
+  .custom-navbar .navbar-brand:hover {
+    color: #007bff;
+  }
+  
+  .custom-navbar .mr-auto {
+    margin-left: 100px;
+    color: #333333;
+    /* font-weight: bold; */
+    margin-right: 100px;
   }
   
   .custom-navbar .nav-link:hover {
-    color: #007bff; /* Change text color on hover */
+    color: #007bff;
+  }
+  
+  .custom-navbar .end {
+    margin-left: 400px;
+    margin-right: 100px;
   }
   
   .custom-navbar .btn-outline-primary {
-    margin-left: 15px; /* Add margin to the logout button */
+    color: #007bff;
+    border-color: #007bff;
   }
   
   .custom-navbar .btn-outline-primary:hover {
-    color: #fff; /* Change text color on hover */
-    background-color: #007bff; /* Change background color on hover */
+    background-color: #007bff;
+    color: #ffffff;
   }
-  .end{
-    margin-left: 400px;
-  }
+  
   
