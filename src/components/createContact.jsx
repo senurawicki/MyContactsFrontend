@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 function CreateContact() {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ function CreateContact() {
     e.preventDefault();
     console.log('Submitting form...');
     try {
-      const response = await fetch('http://localhost:5001/api/contacts', {
+      const response = await fetch('http://localhost:5001/api/contacts/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -50,20 +51,26 @@ function CreateContact() {
   };
 
   return (
-    <div>
+    <div className="container mt-5">
       <h2>Create Contact</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Contact Name:</label>
-        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required /><br /><br />
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Form.Label>Contact Name:</Form.Label>
+          <FormControl type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+        </FormGroup>
 
-        <label htmlFor="phone">Contact Number:</label>
-        <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required /><br /><br />
+        <FormGroup>
+          <Form.Label>Contact Number:</Form.Label>
+          <FormControl type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
+        </FormGroup>
 
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required /><br /><br />
+        <FormGroup>
+          <Form.Label>Email:</Form.Label>
+          <FormControl type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+        </FormGroup>
 
-        <button type="submit">Create Contact</button>
-      </form>
+        <Button type="submit" variant="primary">Create Contact</Button>
+      </Form>
     </div>
   );
 }

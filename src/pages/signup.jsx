@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -43,23 +44,31 @@ function Signup() {
   
 
   return (
-    <div>
+    <div className="container mt-5">
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required /><br /><br />
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Form.Label>Name:</Form.Label>
+          <FormControl type="text" value={formData.name} onChange={handleChange} name="name" required />
+        </FormGroup>
 
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required /><br /><br />
+        <FormGroup>
+          <Form.Label>Username:</Form.Label>
+          <FormControl type="text" value={formData.username} onChange={handleChange} name="username" required />
+        </FormGroup>
 
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required /><br /><br />
+        <FormGroup>
+          <Form.Label>Email:</Form.Label>
+          <FormControl type="email" value={formData.email} onChange={handleChange} name="email" required />
+        </FormGroup>
 
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required /><br /><br />
+        <FormGroup>
+          <Form.Label>Password:</Form.Label>
+          <FormControl type="password" value={formData.password} onChange={handleChange} name="password" required />
+        </FormGroup>
 
-        <button type="submit">Sign Up</button>
-      </form>
+        <Button type="submit" variant="primary">Sign Up</Button>
+      </Form>
     </div>
   );
 }

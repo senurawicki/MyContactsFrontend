@@ -1,0 +1,36 @@
+/* navbar.css */
+
+.custom-navbar {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px 0; /* Add padding to the top and bottom */
+  }
+  
+  .custom-navbar .navbar-brand {
+    margin-left: 100px;
+    margin-right: 200px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+  }
+  
+  .custom-navbar .nav-link {
+
+    color: #333; /* Dark text color */
+    margin-right: 15px; /* Add margin between nav links */
+  }
+  
+  .custom-navbar .nav-link:hover {
+    color: #007bff; /* Change text color on hover */
+  }
+  
+  .custom-navbar .btn-outline-primary {
+    margin-left: 15px; /* Add margin to the logout button */
+  }
+  
+  .custom-navbar .btn-outline-primary:hover {
+    color: #fff; /* Change text color on hover */
+    background-color: #007bff; /* Change background color on hover */
+  }
+  .end{
+    margin-left: 400px;
+  }
+  

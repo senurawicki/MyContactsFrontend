@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Login() {
+  const navigate = useNavigate(); // Initialize the navigate function
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -34,7 +33,7 @@ function Login() {
       sessionStorage.setItem('token', data.accessToken);
       
       // Optionally, you can redirect the user to another page upon successful login
-      // For example, window.location.href = '/dashboard';
+      navigate("/"); 
     } catch (error) {
       console.error('Error:', error);
     }
@@ -45,24 +44,23 @@ function Login() {
       password: ''
     });
   };
-  
 
   return (
     <div className="container mt-5">
       <h2>Login</h2>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Form.Label>Username:</Form.Label>
-          <FormControl type="text" value={formData.username} onChange={handleChange} required />
-        </FormGroup>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username:</label>
+          <input type="text" className="form-control" id="username" name="username" value={formData.username} onChange={handleChange} required />
+        </div>
 
-        <FormGroup>
-          <Form.Label>Password:</Form.Label>
-          <FormControl type="password" value={formData.password} onChange={handleChange} required />
-        </FormGroup>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input type="password" className="form-control" id="password" name="password" value={formData.password} onChange={handleChange} required />
+        </div>
 
-        <Button type="submit" variant="primary">Login</Button>
-      </Form>
+        <button type="submit" className="btn btn-primary">Login</button>
+      </form>
     </div>
   );
 }
