@@ -4,8 +4,8 @@ import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 function CreateContact() {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
-    email: ''
+    email: '',
+    phone: ''
   });
 
   // UseEffect to get token from session storage
@@ -25,30 +25,29 @@ function CreateContact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting form...');
     try {
-      const response = await fetch('http://localhost:5001/api/contacts/', {
+      const response = await fetch(`http://localhost:5001/api/user/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
       });
-      console.log('Response status:', response.status); // Log the response status
       const data = await response.json();
-      console.log('Response data:', data);
+      console.log(data.message); // Log the response from the server
     } catch (error) {
       console.error('Error:', error);
     }
-    // Handle form submission, such as sending data to the server or performing validation
     console.log('Form submitted:', formData);
-    // Optionally, you can reset the form fields after submission if needed
+    // You can also reset the form fields after submission if needed
     setFormData({
       name: '',
       phone: '',
       email: ''
+      // password: ''
     });
   };
+  
 
   return (
     <div className="container mt-5">
